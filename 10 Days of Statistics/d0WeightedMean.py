@@ -2,6 +2,7 @@
 Oct 22, 2018
 @author : Graves88si(Maher Krde)
 '''
+
 n=int(input())
 num=[int(x) for x in input().split()]
 weight=[int(x) for x in input().split()]
