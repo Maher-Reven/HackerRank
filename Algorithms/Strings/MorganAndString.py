@@ -1,26 +1,29 @@
-#!/bin/python3
 '''
 26 OCT, 2018
 @author: Graves88si(Maher Krde)
-'''
 
-for i in range(int(input())):
-    s1 = input().strip()
-    s2 = input().strip()
-    len1 = len(s1)
-    len2 = len(s2)
-    i, j = 0,0
-    output = []
-    while (i <= len1 - 1)  and (j <= len2 - 1):
-        if s1[i:-1] < s2[j:-1]:            
-            output.append(s1[i])
-            i += 1
-        else:
-            output += s2[j]
-            j += 1
-    if i == len1:
-        output.append(s2[j:])
-    if j == len2:
-        output.append(s1[i:])
+'''
+n = int(input().strip())
+for loop in range(n) :
+    strA = input().strip()
+    strB = input().strip()
+    lenA = len(strA)
+    lenB = len(strB)
     
-    print("".join(output))
+    # since ord('[') > ord('Z')
+    strA1 = strA+'['
+    strB1 = strB+'['
+    
+    indxA = 0
+    indxB = 0
+    result = []
+    for i in range(lenA+lenB) :
+        if indxA == lenA or indxB == lenB : break
+        elif (strA1[indxA:] < strB1[indxB:]) : 
+            result.append(strA[indxA])
+            indxA+=1
+        else :
+            result.append(strB[indxB])
+            indxB+=1
+    res = "".join(result)+strA[indxA:]+strB[indxB:]
+    print(res)
