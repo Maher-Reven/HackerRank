@@ -1,0 +1,12 @@
+.btns {
+    width: 75%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-gap: 5px;
+  }
+  
+  .btns > button {
+    height: 48px;
+    font-size: 24px;
+  }
