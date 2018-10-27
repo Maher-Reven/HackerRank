@@ -36,4 +36,3 @@ for fr, tos in questions_dict.items():
         answers[(fr,to)] = dists[to]
 for fr, to in questions:
     print(answers[(fr,to)])
-
