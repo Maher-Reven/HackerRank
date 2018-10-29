@@ -1,0 +1,1 @@
+print(*(lambda x,y: y[::-1])(input(), list(map(int, input().strip().split()))))
