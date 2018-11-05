@@ -9,4 +9,4 @@ while True:
         break
 f = numpy.array(f)
 s = f.sum(axis = 0)
-print(s.prod(axis = 0))
+print(s.prod(axis = 0))a
