@@ -1,16 +1,35 @@
-def breaking_records(score):
-    min = max = score[0]
-    min_count = max_count = 0
-    for i in score[1:]:
-        if i > max:
-            max_count += 1
-            max = i
-        if i < min:
-            min_count += 1
-            min = i
-    return max_count, min_count
+#!/bin/python3
 
+import math
+import os
+import random
+import re
+import sys
 
-n = int(input())
-score = list(map(int, input().split()))
-print(*breaking_records(score))
+# Complete the breakingRecords function below.
+def breakingRecords(scores):
+    lst = []
+    mini = 0
+    maxi = 0
+    lst.append(scores[0])
+    for x in scores:
+        if x<min(lst):
+            mini+=1
+        if x>max(lst):
+            maxi+=1
+        lst.append(x)
+    return [maxi,mini]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    scores = list(map(int, input().rstrip().split()))
+
+    result = breakingRecords(scores)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
