@@ -23,4 +23,4 @@ for i in range(0,L+1):
         
     
             
-print(global_max)
+print(global_max)s
