@@ -1,33 +1,9 @@
-#!/bin/python3
-
+from itertools import combinations
 import math
-import os
-import random
-import re
-import sys
 
-# Complete the winningLotteryTicket function below.
-def winningLotteryTicket(tickets):
-    s=set(list(map(str,range(0,10))))
-    lst=[]
-    for i in range(0,len(tickets)):
-        for j in range(i+1,len(tickets)):
-            if set(str(tickets[i])).union(set(str(tickets[j]))).issuperset(s):
-                lst.append((tickets[i],tickets[j]))  
-    return len(lst)
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    n = int(input())
-
-    tickets = []
-
-    for _ in range(n):
-        tickets_item = input()
-        tickets.append(tickets_item)
-
-    result = winningLotteryTicket(tickets)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+if __name__ == "__main__":
+    k = [sum(2**(ord(i)-48) for i in ''.join(set(s))) for s in [input() for x in range(int(input()))]]
+    c = combinations(list(enumerate([k.count(x) for x in range(1024)])), 2)
+    n = sum(x[0][1] * x[1][1] for x in c if (x[0][0] | x[1][0] == 1023) and x[0][1] > 0 and x[1][1] > 0)
+    inner = max(0, k.count(1023)-1)
+    print(n + (inner * inner + inner)//2)
