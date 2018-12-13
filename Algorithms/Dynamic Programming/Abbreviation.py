@@ -21,3 +21,5 @@ if __name__ == "__main__":
         b = raw_input().strip()
         result = abbreviation(a, b)
         print "YES" if result else "NO"
+
+        
